@@ -1,0 +1,36 @@
+<div class="example-container">
+  <!--<div class="header">
+    <div class="logo">
+      <button (click)="snav.toggle()" class="menu"><mat-icon>menu</mat-icon></button>
+      <img  src='assets/'>
+    </div>
+    <div class="buttons">
+      <mat-icon class="notifications">notifications</mat-icon>
+      <div class="profile-avatar">
+        <img src="assets/" alt="Profile Image">
+      </div>
+    </div>
+
+  </div>-->
+  <mat-sidenav-container class="content" >
+    <mat-sidenav #snav [mode]="'side'" [opened]=true>
+      <mat-nav-list>
+        <a
+          *ngFor="let item of menuItems"
+          routerLinkActive="active"
+          class="link"
+          (click)="setActiveItem(item);Navigate(item.name)"
+          [class.active]="activeItem === item"
+        >
+          <mat-icon>{{item.icon}}</mat-icon>{{item.name}}
+        </a>
+
+        <a (click)="Navigate('home')" class="link" id="back"><mat-icon>meeting_room</mat-icon>Login</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
