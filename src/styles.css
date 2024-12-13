@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+body{
+  /*  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 1)),
+    url('assets/images/fondoCiberseguridad.png') no-repeat center ;
+    background-size: cover;*/
+  background-color: white;
+  color: white;
+}
+:root{
+  --mainColor: rgb(4, 123, 190);
+  --backgroundColor: rgb(20, 156, 217);
+  --secondaryColor: rgb(0, 124, 196);
+  --ternaryColor: rgb(77, 155, 218);
+  --black: rgb(0, 0, 0);
+  --white: rgb(255, 255, 255);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
