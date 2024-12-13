@@ -20,6 +20,8 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {HttpClientModule} from "@angular/common/http";
 import { SearchComponent } from './components/search/search.component';
+import { ContinentsCatalogComponent } from './components/continents-catalog/continents-catalog.component';
+import { CardCountryComponent } from './components/card-country/card-country.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SearchComponent } from './components/search/search.component';
     HomeComponent,
     View1Component,
     View2Component,
-    SearchComponent
+    SearchComponent,
+    ContinentsCatalogComponent,
+    CardCountryComponent
   ],
   imports: [
     BrowserModule,

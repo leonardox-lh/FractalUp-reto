@@ -7,18 +7,17 @@ import { Router} from "@angular/router";
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent{
-  menuItems = [
+  menuLinks = [
     { name: 'home', icon: 'home'},
     { name: 'view1', icon: 'report'},
     { name: 'view2', icon: 'people'},
   ];
-  activeItem = this.menuItems[0];
-  constructor(private router:Router
-  ) {
+  activeLink = this.menuLinks[0];
+  constructor(private router:Router) {
   }
 
-  setActiveItem(item: any) {
-    this.activeItem = item;
+  setActiveLink(item: any) {
+    this.activeLink = item;
   }
   Navigate(name: string) {
     if (name === 'home') {

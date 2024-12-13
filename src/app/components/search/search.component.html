@@ -1,0 +1,24 @@
+<div class="search-container">
+  <mat-form-field class="search-field" appearance="outline">
+    <mat-label>Buscar</mat-label>
+    <input
+      matInput
+      type="text"
+      [(ngModel)]="searchText"
+      (input)="onSearch()"
+      placeholder="Escribe para buscar..."
+    />
+    <button mat-icon-button matSuffix aria-label="Search">
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <div *ngIf="filteredItems.length > 0" class="search-results">
+    <mat-list>
+      <mat-list-item *ngFor="let item of filteredItems">
+        {{ item }}
+      </mat-list-item>
+    </mat-list>
+  </div>
+  <p *ngIf="filteredItems.length === 0 && searchText">Sin resultados.</p>
+</div>

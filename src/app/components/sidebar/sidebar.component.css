@@ -1,76 +1,14 @@
 .example-container {
   display: flex;
-  flex-direction: column;
-  position: fixed;
   width: 100%;
   height: 100%;
 }
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.header{
-  background-color: var(--backgroundColor);
-  height: 80px;
-  display: flex;
-  justify-content: space-between;
-}
 
-.logo{
-  align-items: center;
-  align-self: flex-start;
-  padding:0 10px;
-  display: flex;
-}
-.profile-avatar{
-  margin: 0 auto;
-  width: 50%;
-  height: 170px;
-  object-fit: cover;
-  display: flex;
-}
-.profile-avatar img {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  object-fit: cover;
-
-}
-
-.logo button{
-  margin: 25px;
-  background-color: transparent;
-  border: none;
-  color: white;
-}
-
-.header img{
-  width: auto;
-  object-fit: cover;
-  height: 60px;
-  align-self: center;
-}
-
-.buttons{
-  display: flex;
-  align-items: center;
-  align-self: center;
-  padding: 0 5px;
-  margin-right: 20px;
-}
-.notifications{
-  font-size: 40px;
-  width: 40px;
-  height: 40px;
-}
-.profile{
-  padding: 0 50px;
-  font-size: 70px;
-  width: 70px;
-  height: 70px;
-}
 /* sidebar*/
+
+mat-sidenav-container{
+  flex: 1 1 auto;
+}
 
 mat-sidenav{
   margin: 10px 0 10px 10px;
@@ -81,8 +19,15 @@ mat-sidenav{
 }
 
 mat-nav-list{
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 10px 15px;
+}
+.logo{
+  width: 80px;
+  border-radius: 10px;
 }
 
 .link{
@@ -91,7 +36,7 @@ mat-nav-list{
   border-radius: 5px;
   padding: 8px 0;
   margin: 10px 0;
-  text-decoration: none;
+  width: 100%;
   color: white;
   cursor: pointer;
 }
@@ -100,36 +45,12 @@ mat-nav-list{
   margin: 0 15px;
 }
 
-mat-nav-list a:hover{
+mat-nav-list a:hover, .link.active{
   background-image: linear-gradient(90grad, var(--mainColor),var(--mainColor), #b5e5c9);
   color: white;
-}
-
-.link.active{
-  background-image: linear-gradient(90grad, var(--mainColor),var(--mainColor), #b5e5c9);
-  color: white;
-}
-
-#back{
-  position: absolute;
-  bottom: 0;
-  background-color: #EB5757;
-  color: #690000;
-  padding-right: 55px;
-  cursor: pointer;
-}
-
-mat-nav-list #back:hover{
-  color: black;
-  background-image: linear-gradient(45deg, #ea3737, #ec8585);
 }
 
 mat-sidenav-content{
   margin: 10px;
   background: #b5e5c9;
-}
-
-.content{
-  flex: 1 1 auto;
-  background-color: white;
 }
