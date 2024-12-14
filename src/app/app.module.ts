@@ -23,6 +23,9 @@ import { SearchComponent } from './components/search/search.component';
 import { CardCountryComponent } from './components/card-country/card-country.component';
 import { ListCardsCountriesComponent } from './components/list-cards-countries/list-cards-countries.component';
 import { CountryDetailComponent } from './components/country-detail/country-detail.component';
+import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
+import { HttpLink } from 'apollo-angular/http';
+import { InMemoryCache } from '@apollo/client/core';
 
 @NgModule({
   declarations: [
@@ -51,8 +54,18 @@ import { CountryDetailComponent } from './components/country-detail/country-deta
     MatNativeDateModule,
     MatSelectModule,
     HttpClientModule,
+    ApolloModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: APOLLO_OPTIONS,
+      useFactory: (httpLink: HttpLink) => ({
+        cache: new InMemoryCache(),
+        link: httpLink.create({ uri: 'https://countries.trevorblades.com/' })
+      }),
+      deps: [HttpLink]
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,7 +1,7 @@
 .country-details {
-  position: fixed;  /* Cambiar a fixed para que esté fijo en la pantalla */
-  bottom: 0;  /* Asegúrate de que esté al fondo */
-  right: 0;    /* Asegúrate de que esté alineado a la izquierda */
+  position: fixed;
+  bottom: 0;
+  right: 0;
   width: 350px;
   background-color: white;
   border-radius: 10px;
