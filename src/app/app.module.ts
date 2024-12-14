@@ -26,6 +26,7 @@ import { CountryDetailComponent } from './components/country-detail/country-deta
 import { ApolloModule, APOLLO_OPTIONS } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache } from '@apollo/client/core';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
   declarations: [
@@ -39,23 +40,24 @@ import { InMemoryCache } from '@apollo/client/core';
     ListCardsCountriesComponent,
     CountryDetailComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    MatSidenavModule,
-    BrowserAnimationsModule,
-    MatListModule,
-    MatIconModule,
-    FormsModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule,
-    HttpClientModule,
-    ApolloModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        MatSidenavModule,
+        BrowserAnimationsModule,
+        MatListModule,
+        MatIconModule,
+        FormsModule,
+        MatInputModule,
+        MatButtonModule,
+        MatCardModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatSelectModule,
+        HttpClientModule,
+        ApolloModule,
+        MatProgressSpinnerModule
+    ],
   providers: [
     {
       provide: APOLLO_OPTIONS,
