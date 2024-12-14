@@ -1,14 +1,14 @@
-<mat-card>
+<mat-card (click)="selectCountry(country)">
   <div class="contImgCountry">
     <img src="assets/img/logo.png" alt="imgCountry">
   </div>
   <div class="contDataCountry">
     <div class="imgFlag">
-      <img src="assets/img/logo.png" alt="flag">
+      <img [src]="country.flag" alt="flag">
     </div>
     <div class="dataCountry">
-      <h2>Nombre del país</h2>
-      <p>Continente</p>
+      <h2>{{country.name}}</h2>
+      <p>{{country.continent}}</p>
     </div>
   </div>
 </mat-card>

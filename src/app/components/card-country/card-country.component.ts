@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Country} from "../../model/country";
 
 @Component({
   selector: 'app-card-country',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./card-country.component.css']
 })
 export class CardCountryComponent {
+  @Input() country!: Country;
+  @Output() countrySelected = new EventEmitter<any>();
 
+
+  selectCountry(country: Country) {
+    this.countrySelected.emit(country);
+  }
 }
