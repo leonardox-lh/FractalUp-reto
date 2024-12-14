@@ -19,5 +19,5 @@ export interface Country {
   img: string;
   continent: Continent;
   languages: Languages[];
-  states: States;
+  states: States[];
 }
