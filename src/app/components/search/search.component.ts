@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, HostListener, Output} from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -6,12 +6,18 @@ import {Component, EventEmitter, Output} from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent {
+  isMobile: boolean = false;
   searchQuery: string = '';
   isFilterContinentVisible: boolean = false;
   selectedContinents: string[] = [];
 
   @Output() searchChanged = new EventEmitter<string>();
   @Output() continentsChanged = new EventEmitter<string[]>();
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.isMobile = window.innerWidth < 860;
+  }
 
   continents = [
     { name: 'Europe', image: 'assets/img/europa-map.png' },
@@ -21,6 +27,9 @@ export class SearchComponent {
     { name: 'Oceania', image: 'assets/img/oceania-map.png' },
   ];
 
+  constructor() {
+    this.onResize();
+  }
   onSearch() {
     this.searchChanged.emit(this.searchQuery);
   }

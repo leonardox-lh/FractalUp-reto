@@ -15,6 +15,7 @@
   height: 120px;
   object-fit: cover;
   border-radius: 5px;
+  margin-bottom: 20px;
 }
 .details-content-header{
   display: flex;
@@ -29,7 +30,7 @@
   height: 100%;
 }
 h2{
-  margin: 0;
+  margin-bottom: 10px;
   padding: 0;
   font-size: 15px;
   color: gray;

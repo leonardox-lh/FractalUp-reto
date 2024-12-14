@@ -1,6 +1,6 @@
-<div class="search-container">
+<div class="search-container" >
 
-  <mat-form-field class="search-input" appearance="outline">
+  <mat-form-field class="search-input" appearance="outline" [ngClass]="{'search-input-mobile': isMobile}">
     <mat-label>País</mat-label>
     <input matInput
            placeholder="Escribe el país que deseas ver"
@@ -13,13 +13,14 @@
   </mat-form-field>
 
   <div class="filter-continent" *ngIf="isFilterContinentVisible">
-    <div class="header-filter">
+    <div class="header-filter" [ngClass]="{'header-filter-mobile': isMobile}">
       <p>Filtrar por continentes</p>
       <h1 (click)="clearFilter(); toggleFilterContinent()">Limpiar</h1>
     </div>
     <div class="continents">
       <div *ngFor="let continent of continents"
            class="continent-card"
+           [ngClass]="{'continent-card-mobile': isMobile}"
            [class.selected]="selectedContinents.includes(continent.name)"
            (click)="selectContinent(continent.name)">
         <div class="content-img-continent">

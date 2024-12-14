@@ -52,4 +52,13 @@ mat-nav-list a:hover, .link.active{
 
 mat-sidenav-content{
   margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.sidenav-button{
+  position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: var(--backgroundColor);
 }

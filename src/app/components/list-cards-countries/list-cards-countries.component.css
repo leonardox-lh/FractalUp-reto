@@ -1,6 +1,6 @@
 .content-all{
   display: flex;
-    justify-content: center;
+  justify-content: center;
   width: 100%;
 }
 .listCountries {
@@ -12,6 +12,9 @@
 }
 .listCountries-active{
   margin-right: 300px;
+}
+.listCountries-mobile{
+  margin-left: 0;
 }
 .loading{
   display: flex;

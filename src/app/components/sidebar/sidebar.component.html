@@ -1,26 +1,19 @@
 <div class="example-container">
-  <!--<div class="header">
-    <div class="logo">
-      <button (click)="snav.toggle()" class="menu"><mat-icon>menu</mat-icon></button>
-      <img  src='assets/'>
-    </div>
-    <div class="buttons">
-      <mat-icon class="notifications">notifications</mat-icon>
-      <div class="profile-avatar">
-        <img src="assets/" alt="Profile Image">
-      </div>
-    </div>
-
-  </div>-->
+  <button mat-icon-button (click)="snav.toggle()" *ngIf="isMobile" class="sidenav-button">
+    <mat-icon>menu</mat-icon>
+  </button>
   <mat-sidenav-container>
-    <mat-sidenav #snav [mode]="'side'" [opened]=true>
+    <mat-sidenav #snav
+                 [mode]="isMobile ? 'over' : 'side'"
+                 [opened]="!isMobile"
+                  >
       <mat-nav-list>
         <img src="assets/img/logo.png" class="logo">
         <a
           *ngFor="let link of menuLinks"
           routerLinkActive="active"
           class="link"
-          (click)="setActiveLink(link);Navigate(link.name)"
+          (click)="setActiveLink(link);Navigate(link.name, snav)"
           [class.active]="activeLink === link"
         >
           <mat-icon>{{link.icon}}</mat-icon>{{link.name}}

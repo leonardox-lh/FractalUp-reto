@@ -2,8 +2,9 @@
             (continentsChanged)="onContinentsChanged($event)"
 ></app-search>
 
-<div class="content-all">
-  <div  class="listCountries" [ngClass]="{'listCountries': true, 'listCountries-active': isShowCountry}" >
+<div class="content-all" >
+  <div  class="listCountries"
+        [ngClass]="{'listCountries': true, 'listCountries-active': isShowCountry&&!isMobile, 'listCountries-mobile': isMobile }" >
     <app-card-country *ngFor="let country of filteredCountries"
                       [country]="country"
                       [isSelect]="isSelected(country)"

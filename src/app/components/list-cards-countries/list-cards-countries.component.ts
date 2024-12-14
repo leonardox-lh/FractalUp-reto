@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {Country} from "../../model/country";
 import {CountriesService} from "../../services/countries.service";
 import {CountriesImgService} from "../../services/countries-img.service";
@@ -11,6 +11,7 @@ import {CountriesImgFlagService} from "../../services/countries-img-flag.service
   styleUrls: ['./list-cards-countries.component.css']
 })
 export class ListCardsCountriesComponent implements OnInit{
+  isMobile: boolean = false;
   countries: Country[] = [];
   filteredCountries: Country[] = [];
   searchTerm: string = '';
@@ -18,15 +19,22 @@ export class ListCardsCountriesComponent implements OnInit{
   isShowCountry: boolean = false;
   selectedContinents: string[] = [];
   isLoading: boolean = false;
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.isMobile = window.innerWidth < 860;
+  }
   constructor(private countriesService: CountriesService,
               private countriesImgService: CountriesImgService,
               private countriesImgFlagService: CountriesImgFlagService
-  ) {}
+  ) {
+    this.onResize();
+  }
 
   ngOnInit(): void {
     this.isLoading = true;
     this.countriesService.getCountries().subscribe((result: any) => {
-      this.countries = result.data.countries.slice(0, 20);
+      this.countries = result.data.countries.slice(0, 50);
       this.fetchFlags(this.countries);
       this.fetchImgCountry(this.countries);
     });
