@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "fractal-up-reto:build:production"
+              "buildTarget": "fractal-up-reto:build:production"
             },
             "development": {
-              "browserTarget": "fractal-up-reto:build:development"
+              "buildTarget": "fractal-up-reto:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "fractal-up-reto:build"
+            "buildTarget": "fractal-up-reto:build"
           }
         },
         "test": {

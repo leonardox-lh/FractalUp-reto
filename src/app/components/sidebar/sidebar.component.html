@@ -1,31 +1,23 @@
 <div class="example-container">
-  <!--<div class="header">
-    <div class="logo">
-      <button (click)="snav.toggle()" class="menu"><mat-icon>menu</mat-icon></button>
-      <img  src='assets/'>
-    </div>
-    <div class="buttons">
-      <mat-icon class="notifications">notifications</mat-icon>
-      <div class="profile-avatar">
-        <img src="assets/" alt="Profile Image">
-      </div>
-    </div>
-
-  </div>-->
-  <mat-sidenav-container class="content" >
-    <mat-sidenav #snav [mode]="'side'" [opened]=true>
+  <button mat-icon-button (click)="snav.toggle()" *ngIf="isMobile" class="sidenav-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-sidenav-container>
+    <mat-sidenav #snav
+                 [mode]="isMobile ? 'over' : 'side'"
+                 [opened]="!isMobile"
+                  >
       <mat-nav-list>
+        <img src="assets/img/logo.png" class="logo">
         <a
-          *ngFor="let item of menuItems"
+          *ngFor="let link of menuLinks"
           routerLinkActive="active"
           class="link"
-          (click)="setActiveItem(item);Navigate(item.name)"
-          [class.active]="activeItem === item"
+          (click)="setActiveLink(link);Navigate(link.name, snav)"
+          [class.active]="activeLink === link"
         >
-          <mat-icon>{{item.icon}}</mat-icon>{{item.name}}
+          <mat-icon>{{link.icon}}</mat-icon>{{link.name}}
         </a>
-
-        <a (click)="Navigate('home')" class="link" id="back"><mat-icon>meeting_room</mat-icon>Login</a>
       </mat-nav-list>
     </mat-sidenav>
 

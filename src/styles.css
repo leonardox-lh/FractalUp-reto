@@ -14,7 +14,7 @@ body{
   color: white;
 }
 :root{
-  --mainColor: rgb(4, 123, 190);
+  --mainColor: rgb(39, 171, 250);
   --backgroundColor: rgb(20, 156, 217);
   --secondaryColor: rgb(0, 124, 196);
   --ternaryColor: rgb(77, 155, 218);
@@ -23,4 +23,5 @@ body{
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0;
+  font-family: "Cooper Black", serif; }
