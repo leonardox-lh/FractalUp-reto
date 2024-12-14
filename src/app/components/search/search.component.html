@@ -1,24 +1,26 @@
 <div class="search-container">
-  <mat-form-field class="search-field" appearance="outline">
-    <mat-label>Buscar</mat-label>
-    <input
-      matInput
-      type="text"
-      [(ngModel)]="searchText"
-      (input)="onSearch()"
-      placeholder="Escribe para buscar..."
-    />
-    <button mat-icon-button matSuffix aria-label="Search">
+
+  <mat-form-field class="search-input" appearance="outline">
+    <mat-label>País</mat-label>
+    <input matInput placeholder="Escribe el país que deseas ver" [(ngModel)]="searchQuery" (focus)="toggleFilterContinent()" />
+    <button mat-icon-button matSuffix (click)="search()">
       <mat-icon>search</mat-icon>
     </button>
   </mat-form-field>
 
-  <div *ngIf="filteredItems.length > 0" class="search-results">
-    <mat-list>
-      <mat-list-item *ngFor="let item of filteredItems">
-        {{ item }}
-      </mat-list-item>
-    </mat-list>
+  <div class="filter-continent" *ngIf="isFilterContinentVisible">
+    <div class="header-filter">
+      <p>Filtrar por continentes</p>
+      <h1 (click)="clearFilter(); toggleFilterContinent()">Limpiar</h1>
+    </div>
+    <div class="continents">
+      <div *ngFor="let continent of continents" class="continent-card"
+        (click)="selectContinent(continent.name)">
+        <div class="content-img-continent">
+          <img [src]="continent.image" [alt]="continent.name" />
+        </div>
+        <p>{{ continent.name }}</p>
+      </div>
+    </div>
   </div>
-  <p *ngIf="filteredItems.length === 0 && searchText">Sin resultados.</p>
 </div>
