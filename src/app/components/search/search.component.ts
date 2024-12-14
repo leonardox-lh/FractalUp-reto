@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'app-search',
@@ -8,29 +8,44 @@ import { Component } from '@angular/core';
 export class SearchComponent {
   searchQuery: string = '';
   isFilterContinentVisible: boolean = false;
-  selectedContinent: string | null = null;
+  selectedContinents: string[] = [];
+
+  @Output() searchChanged = new EventEmitter<string>();
+  @Output() continentsChanged = new EventEmitter<string[]>();
 
   continents = [
-    { name: 'Europa', image: 'assets/img/europa-map.png' },
-    { name: 'África', image: 'assets/img/africa-map.png' },
-    { name: 'América', image: 'assets/img/america-map.png' },
+    { name: 'Europe', image: 'assets/img/europa-map.png' },
+    { name: 'Africa', image: 'assets/img/africa-map.png' },
+    { name: 'America', image: 'assets/img/america-map.png' },
     { name: 'Asia', image: 'assets/img/asia-map.png' },
-    { name: 'Oceanía', image: 'assets/img/oceania-map.png' },
+    { name: 'Oceania', image: 'assets/img/oceania-map.png' },
   ];
 
+  onSearch() {
+    this.searchChanged.emit(this.searchQuery);
+  }
   toggleFilterContinent() {
     this.isFilterContinentVisible = !this.isFilterContinentVisible;
   }
 
   selectContinent(continent: string) {
-    this.selectedContinent = continent;
-    console.log('Continente seleccionado:', continent);
-    this.isFilterContinentVisible = false;
+    if (!this.selectedContinents.includes(continent)) {
+      this.selectedContinents.push(continent);
+    } else {
+      // Si el continente ya está seleccionado, lo eliminamos
+      this.selectedContinents = this.selectedContinents.filter(c => c !== continent);
+    }
+
+    console.log('Continentes seleccionados:', this.selectedContinents);
+
+    // Emitir los continentes seleccionados
+    this.continentsChanged.emit(this.selectedContinents);
   }
 
   clearFilter() {
-    this.selectedContinent = null;
+    this.selectedContinents = [];
     console.log('Filtro eliminado');
+    this.continentsChanged.emit(this.selectedContinents);
   }
 
   search() {
