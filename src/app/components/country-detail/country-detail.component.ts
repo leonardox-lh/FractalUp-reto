@@ -11,7 +11,7 @@ export class CountryDetailComponent {
   @Input() isShowCountry!: boolean;
   @Output() close = new EventEmitter<void>();
   closeDetail() {
-    this.close.emit();  // Emitir evento de cierre
+    this.close.emit();
   }
   returnLanguages(array: any[]) {
     return array.map((item) => item.name).join(', ');

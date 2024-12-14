@@ -39,6 +39,10 @@ export class ListCardsCountriesComponent implements OnInit{
       this.fetchImgCountry(this.countries);
     });
   }
+  /**
+   * Funciones de filtrado.
+   * Filtrado por nombre de país y por continente.
+   */
 
   filterCountries(): void {
     this.filteredCountries = this.countries.filter(country =>
@@ -50,8 +54,13 @@ export class ListCardsCountriesComponent implements OnInit{
   }
   onSearchChange(searchTerm: string): void {
     this.searchTerm = searchTerm;
-    this.filterCountries(); // Llama a la función de filtrado
+    this.filterCountries();
   }
+  onContinentsChanged(continents: string[]): void {
+    this.selectedContinents = continents;
+    this.filterCountries();
+  }
+
   fetchFlags(countries: any[]): void {
     this.countries = countries.map((country) => {
       const flagUrl = this.countriesImgFlagService.searchFlag(country.code);
@@ -63,18 +72,23 @@ export class ListCardsCountriesComponent implements OnInit{
     console.log('Updated countries:', this.countries);
   }
 
+  /**
+   * Funciones para obtener las imagenes.
+   * Se usaron 2 api externas.
+   * La primera es para obtener la imagen de la bandera de cada país.
+   * La segunda es para obtener una imagen representativa de cada país.
+   */
+
   fetchImgCountry(countries: any[]): void {
-    // Crear una lista de observables para obtener las imágenes
     const requests = countries.map((country) =>
         this.countriesImgService.searchImg(country.name).pipe(
             catchError((error) => {
               console.error(`Error fetching image for ${country.name}:`, error);
-              return of(null); // Continuamos con null si ocurre un error
+              return of(null);
             })
         )
     );
 
-    // Usamos forkJoin para esperar que todas las solicitudes de imágenes se completen
     forkJoin(requests).subscribe((responses: any[]) => {
       this.countries = countries.map((country, index) => {
         const response = responses[index];
@@ -106,8 +120,5 @@ export class ListCardsCountriesComponent implements OnInit{
     this.selectedCountry = null;
   }
 
-  onContinentsChanged(continents: string[]): void {
-    this.selectedContinents = continents;
-    this.filterCountries();
-  }
+
 }

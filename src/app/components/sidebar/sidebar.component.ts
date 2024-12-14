@@ -26,6 +26,12 @@ export class SidebarComponent{
   setActiveLink(item: any) {
     this.activeLink = item;
   }
+
+  /** Función para navegar a las diferentes rutas
+    * @param name
+    * @param snav
+   * @returns void
+   * */
   Navigate(name: string, snav: MatSidenav) {
     if (name === 'home') {
       this.navigateHome(name);
@@ -34,7 +40,7 @@ export class SidebarComponent{
     } else if (name === 'view2') {
       this.navigateView2(name)
     }
-    if (snav.mode === 'over') { // Solo lo cierra si está en modo 'over' (móvil)
+    if (snav.mode === 'over') {
       snav.close();
     }
   }

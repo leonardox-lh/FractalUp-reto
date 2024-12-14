@@ -37,27 +37,24 @@ export class SearchComponent {
     this.isFilterContinentVisible = !this.isFilterContinentVisible;
   }
 
+  /**
+   * Funciones de filtrado por continentes.
+   * @param continent
+   * @returns void
+   */
   selectContinent(continent: string) {
     if (!this.selectedContinents.includes(continent)) {
       this.selectedContinents.push(continent);
     } else {
-      // Si el continente ya está seleccionado, lo eliminamos
       this.selectedContinents = this.selectedContinents.filter(c => c !== continent);
     }
 
-    console.log('Continentes seleccionados:', this.selectedContinents);
-
-    // Emitir los continentes seleccionados
     this.continentsChanged.emit(this.selectedContinents);
   }
 
   clearFilter() {
     this.selectedContinents = [];
-    console.log('Filtro eliminado');
     this.continentsChanged.emit(this.selectedContinents);
   }
 
-  search() {
-    console.log('Buscando:', this.searchQuery);
-  }
 }

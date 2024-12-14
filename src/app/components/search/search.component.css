@@ -11,7 +11,8 @@
   width: 600px;
 }
 .search-input-mobile{
-  width: 300px;
+  width: 170px;
+  font-size: 1px;
 }
 .filter-continent {
   position: absolute;
