@@ -1,10 +1,24 @@
 <div *ngIf="isShowCountry" class="country-details">
   <button class="close-button" (click)="closeDetail()"><mat-icon>close</mat-icon></button>
-  <img [src]="country.flag" alt="{{ country.name }}" class="country-detail-flag"/>
+  <img [src]="country.img" alt="{{ country.name }}" class="country-detail-img"/>
   <div class="details-content">
-    <h3>{{ country.name }}</h3>
-    <p>Continent: {{ country.continent.name }}</p>
-    <p>Capital: {{ country.capital }}</p>
-    <p>Language: {{ country.languages[0]}}</p>
+    <div class="details-content-header">
+      <div class="imgFlag">
+        <img [src]="country.flag" alt="flag">
+      </div>
+      <div class="dataCountry">
+        <h2><span>{{country.name}}</span></h2>
+        <p>{{country.continent.name}}</p>
+      </div>
+    </div>
+    <h2><span>Capital: </span>{{ country.capital }}</h2>
+    <h2><span>Language:</span> {{ returnLanguages(country.languages)}}</h2>
+    <h2><span>Currency:</span> {{ country.currency.toLowerCase() }}</h2>
+    <h2><span>States:</span></h2>
+    <div class="scrollable-list">
+        <ul>
+            <li *ngFor="let state of country.states">{{ state.name }}</li>
+        </ul>
+    </div>
   </div>
 </div>
