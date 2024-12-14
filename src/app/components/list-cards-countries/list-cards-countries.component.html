@@ -1,0 +1,18 @@
+<div class="content-all">
+  <div  class="listCountries" [ngClass]="{'listCountries': true, 'listCountries-active': isShowCountry}">
+    <app-card-country *ngFor="let country of countries"
+                      [country]="country"
+                      (countrySelected)="onCountrySelected($event)">
+
+    </app-card-country>
+
+  </div>
+  <app-country-detail [country]="selectedCountry"
+                      [isShowCountry]="isShowCountry"
+                      (close)="onCloseCountryDetail()">
+
+  </app-country-detail>
+</div>
+
+
+

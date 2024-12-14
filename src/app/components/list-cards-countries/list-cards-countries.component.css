@@ -1,0 +1,13 @@
+.content-all{
+  display: flex;
+}
+.listCountries {
+  margin-left: 20px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.listCountries-active{
+  margin-right: 300px;
+}
