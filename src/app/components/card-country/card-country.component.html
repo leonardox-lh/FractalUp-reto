@@ -1,4 +1,4 @@
-<mat-card (click)="selectCountry(country)">
+<mat-card (click)="selectCountry(country)" [ngClass]="{'mat-card-selected': isSelect}">
   <div class="contImgCountry">
     <img [src]="country.img" alt="imgCountry">
   </div>
