@@ -1,11 +1,25 @@
+<app-search (searchChanged)="onSearchChange($event)"
+            (continentsChanged)="onContinentsChanged($event)"
+></app-search>
+
 <div class="content-all">
-  <div  class="listCountries" [ngClass]="{'listCountries': true, 'listCountries-active': isShowCountry}">
-    <app-card-country *ngFor="let country of countries"
+  <div  class="listCountries" [ngClass]="{'listCountries': true, 'listCountries-active': isShowCountry}" >
+    <app-card-country *ngFor="let country of filteredCountries"
                       [country]="country"
-                      (countrySelected)="onCountrySelected($event)">
+                      [isSelect]="isSelected(country)"
+                      (countrySelected)="onCountrySelected($event)"
+    >
 
     </app-card-country>
 
+    <div *ngIf="filteredCountries.length === 0 && !isLoading" class="no-found">
+      <h1> No countries found</h1>
+    </div>
+
+    <div *ngIf="isLoading" class="loading">
+      <mat-spinner></mat-spinner>
+      <p>Cargando paises...</p>
+    </div>
   </div>
   <app-country-detail [country]="selectedCountry"
                       [isShowCountry]="isShowCountry"
