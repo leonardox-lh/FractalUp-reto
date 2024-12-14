@@ -5,6 +5,8 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
+/** Servicio para obtener imágenes de países con Pixabay Api. */
+
 export class CountriesImgService {
   private apiKey = '47634499-99c877ed012e17ebc65287a19';
   private apiUrl = 'https://pixabay.com/api/';

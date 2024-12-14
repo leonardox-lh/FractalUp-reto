@@ -4,6 +4,9 @@ import {HttpClient} from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
+
+/** Servicio para obtener imágenes de banderas de países con flagcdn. */
+
 export class CountriesImgFlagService {
 
   private apiUrl =  'https://flagcdn.com';

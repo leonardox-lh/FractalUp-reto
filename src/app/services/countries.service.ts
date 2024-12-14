@@ -5,6 +5,9 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
+
+/** Servicio para obtener información de países con GraphQL. */
+
 export class CountriesService {
 
   constructor(private apollo: Apollo) {}
