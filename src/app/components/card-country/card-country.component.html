@@ -1,0 +1,14 @@
+<mat-card (click)="selectCountry(country)" [ngClass]="{'mat-card-selected': isSelect}">
+  <div class="contImgCountry">
+    <img [src]="country.img" alt="imgCountry">
+  </div>
+  <div class="contDataCountry">
+    <div class="imgFlag">
+        <img [src]="country.flag" alt="flag">
+    </div>
+    <div class="dataCountry">
+      <h2>{{country.name}}</h2>
+      <p>{{country.continent.name}}</p>
+    </div>
+  </div>
+</mat-card>

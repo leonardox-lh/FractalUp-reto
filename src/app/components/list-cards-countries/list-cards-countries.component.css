@@ -1,0 +1,33 @@
+.content-all{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.listCountries {
+  margin-left: 20px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.listCountries-active{
+  margin-right: 300px;
+}
+.listCountries-mobile{
+  margin-left: 0;
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+.no-found{
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-size: 20px;
+    color: red;
+}

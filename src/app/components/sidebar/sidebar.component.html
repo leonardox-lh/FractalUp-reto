@@ -1,0 +1,28 @@
+<div class="example-container">
+  <button mat-icon-button (click)="snav.toggle()" *ngIf="isMobile" class="sidenav-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <mat-sidenav-container>
+    <mat-sidenav #snav
+                 [mode]="isMobile ? 'over' : 'side'"
+                 [opened]="!isMobile"
+                  >
+      <mat-nav-list>
+        <img src="assets/img/logo.png" class="logo">
+        <a
+          *ngFor="let link of menuLinks"
+          routerLinkActive="active"
+          class="link"
+          (click)="setActiveLink(link);Navigate(link.name, snav)"
+          [class.active]="activeLink === link"
+        >
+          <mat-icon>{{link.icon}}</mat-icon>{{link.name}}
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

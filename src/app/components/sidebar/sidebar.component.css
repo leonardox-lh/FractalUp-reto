@@ -1,0 +1,64 @@
+.example-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* sidebar*/
+
+mat-sidenav-container{
+  flex: 1 1 auto;
+}
+
+mat-sidenav{
+  margin: 10px 0 10px 10px;
+  border-radius: 5px;
+  width: 180px;
+  background-color: var(--backgroundColor);
+  border: 0;
+}
+
+mat-nav-list{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+}
+.logo{
+  width: 80px;
+  border-radius: 10px;
+}
+
+.link{
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 8px 0;
+  margin: 10px 0;
+  width: 100%;
+  color: white;
+  cursor: pointer;
+}
+
+.link mat-icon{
+  margin: 0 15px;
+}
+
+mat-nav-list a:hover, .link.active{
+  background-image: linear-gradient(90grad, var(--mainColor),var(--mainColor), #b5e5c9);
+  color: white;
+}
+
+mat-sidenav-content{
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.sidenav-button{
+  position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background-color: var(--backgroundColor);
+}
