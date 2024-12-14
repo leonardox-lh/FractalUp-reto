@@ -3,8 +3,8 @@
   <img [src]="country.flag" alt="{{ country.name }}" class="country-detail-flag"/>
   <div class="details-content">
     <h3>{{ country.name }}</h3>
-    <p>Continent: {{ country.continent }}</p>
+    <p>Continent: {{ country.continent.name }}</p>
     <p>Capital: {{ country.capital }}</p>
-    <p>Language: {{ country.population }}</p>
+    <p>Language: {{ country.languages[0]}}</p>
   </div>
 </div>

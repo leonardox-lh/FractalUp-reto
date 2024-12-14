@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Country} from "../../model/country";
+import {join} from "@angular/compiler-cli";
 
 @Component({
   selector: 'app-country-detail',
@@ -13,4 +14,8 @@ export class CountryDetailComponent {
   closeDetail() {
     this.close.emit();  // Emitir evento de cierre
   }
+  getLanguagesString(languages: any[]): string {
+    return languages.map((l) => l.name).join(', ');
+  }
+  protected readonly join = join;
 }
