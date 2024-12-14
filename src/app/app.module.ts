@@ -20,8 +20,9 @@ import {MatNativeDateModule} from "@angular/material/core";
 import {MatSelectModule} from "@angular/material/select";
 import {HttpClientModule} from "@angular/common/http";
 import { SearchComponent } from './components/search/search.component';
-import { ContinentsCatalogComponent } from './components/continents-catalog/continents-catalog.component';
 import { CardCountryComponent } from './components/card-country/card-country.component';
+import { ListCardsCountriesComponent } from './components/list-cards-countries/list-cards-countries.component';
+import { CountryDetailComponent } from './components/country-detail/country-detail.component';
 
 @NgModule({
   declarations: [
@@ -31,8 +32,9 @@ import { CardCountryComponent } from './components/card-country/card-country.com
     View1Component,
     View2Component,
     SearchComponent,
-    ContinentsCatalogComponent,
-    CardCountryComponent
+    CardCountryComponent,
+    ListCardsCountriesComponent,
+    CountryDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,7 @@ import { CardCountryComponent } from './components/card-country/card-country.com
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

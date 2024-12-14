@@ -1,0 +1,10 @@
+<div *ngIf="isShowCountry" class="country-details">
+  <button class="close-button" (click)="closeDetail()"><mat-icon>close</mat-icon></button>
+  <img [src]="country.flag" alt="{{ country.name }}" class="country-detail-flag"/>
+  <div class="details-content">
+    <h3>{{ country.name }}</h3>
+    <p>Continent: {{ country.continent }}</p>
+    <p>Capital: {{ country.capital }}</p>
+    <p>Language: {{ country.population }}</p>
+  </div>
+</div>
